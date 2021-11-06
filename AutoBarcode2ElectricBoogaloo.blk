@@ -1,0 +1,537 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="/;..,1S]c6XTz(ocboUD">duckPos</variable>
+<variable id="^5b-he,ol9K=.LL1Lx/+">recog</variable>
+<variable id="dh_o5aR,gU)44w`CFCe8">recogCenter</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="0" y="0">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Sample TFOD Op Mode</field>
+<next>
+<block type="comment" id="#ul#WaXLbg~hUii+7AB_">
+<field name="COMMENT">Initialize Vuforia.</field>
+<next>
+<block type="vuforiaCurrentGame_initialize_withWebcam_2" id="6Xzo0d*2b_I.B:]B4+5q">
+<value name="CAMERA_NAME">
+<shadow type="navigation_webcamName" id="Uztu;2eL:)g_#d6}G98K">
+<field name="WEBCAM_NAME">Webcam 1</field>
+</shadow>
+</value>
+<value name="WEBCAM_CALIBRATION_FILE">
+<shadow type="text" id="znyjVw;:]}rr$Dq}XK!M">
+<field name="TEXT"/>
+</shadow>
+</value>
+<value name="USE_EXTENDED_TRACKING">
+<shadow type="logic_boolean" id="_XSP5JKC^8OOw%V[(HR=">
+<field name="BOOL">TRUE</field>
+</shadow>
+</value>
+<value name="ENABLE_CAMERA_MONITORING">
+<shadow type="logic_boolean" id="y/~?GcC]T),;cIU(d`Cc">
+<field name="BOOL">TRUE</field>
+</shadow>
+</value>
+<value name="CAMERA_MONITOR_FEEDBACK">
+<shadow type="navigation_typedEnum_cameraMonitorFeedback" id="TG%:#^SAd7#]OFj[V9K?">
+<field name="CAMERA_MONITOR_FEEDBACK">NONE</field>
+</shadow>
+</value>
+<value name="DX">
+<shadow type="math_number" id="~PyI_z2IlCq!Uv~b9^=v">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="DY">
+<shadow type="math_number" id="CWCmb0p(S96VKi%Kk(3W">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="DZ">
+<shadow type="math_number" id="5WhUGHWwt[OKb:2pH+~:">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="AXES_ORDER">
+<shadow type="navigation_typedEnum_axesOrder" id="K8jWG:)SaZ?-YT@w(WSz">
+<field name="AXES_ORDER">XZY</field>
+</shadow>
+</value>
+<value name="FIRST_ANGLE">
+<shadow type="math_number" id="!C$T}|^{.b[TPj=vdHo$">
+<field name="NUM">90</field>
+</shadow>
+</value>
+<value name="SECOND_ANGLE">
+<shadow type="math_number" id="=a{Eypfq::uaptXMi6Jq">
+<field name="NUM">90</field>
+</shadow>
+</value>
+<value name="THIRD_ANGLE">
+<shadow type="math_number" id=":|I95FQpD}bI]ECP-w/,">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<value name="USE_COMPETITION_FIELD_TARGET_LOCATIONS">
+<shadow type="logic_boolean" id="Ul5tBGCna_g*4C]X{s-w">
+<field name="BOOL">TRUE</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="{f-nucs}ixJh2%x:J{bE">
+<field name="COMMENT">Set min confidence threshold to 0.7</field>
+<next>
+<block type="tfodCurrentGame_initialize" id="S?6y8$gBQja5ehCJI6Pi">
+<value name="MINIMUM_CONFIDENCE">
+<shadow type="math_number" id="iXlEJA=*Aq^$z~;?.MCb">
+<field name="NUM">0.7</field>
+</shadow>
+</value>
+<value name="USE_OBJECT_TRACKER">
+<shadow type="logic_boolean" id="U2-YX?NyBMWtwqm(aPh0">
+<field name="BOOL">TRUE</field>
+</shadow>
+</value>
+<value name="ENABLE_CAMERA_MONITORING">
+<shadow type="logic_boolean" id="^IoQ1ZVTCGdA3E5UYJTf">
+<field name="BOOL">TRUE</field>
+</shadow>
+</value>
+<next>
+<block type="comment" id="6]yP0{L.V#v3^DJf|2r=">
+<field name="COMMENT">Initialize TFOD before waitForStart.</field>
+<next>
+<block type="tfodCurrentGame_activate" id="/B7!WNQ].FmwKj=}jsb|">
+<comment pinned="false" h="99" w="252">Init TFOD here so the object detection labels are visible in the Camera Stream preview window on the Driver Station.</comment>
+<next>
+<block type="comment" id=")fKii]4w!FY{pg5CmS{x">
+<field name="COMMENT">Enable following block to zoom in on target.</field>
+<next>
+<block type="tfodCurrentGame_setZoom" id="aB1GwzHR*MIIKAnQObG!">
+<value name="MAGNIFICATION">
+<shadow type="math_number" id="$|tmDEP2DSJ6saa+-BMd">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<value name="ASPECT_RATIO">
+<block type="math_arithmetic" id="(u]Z~xR.UJ[]:XrF7)-i">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number" id="mYh$IgooC{KNzBhqm.$T">
+<field name="NUM">16</field>
+</shadow>
+</value>
+<value name="B">
+<shadow type="math_number" id="jLY!cjK}`7a6T:-$]=:I">
+<field name="NUM">9</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="s_:#ax|XU($5-SgMk^r~">
+<value name="KEY">
+<shadow type="text" id="Ap*A_$!|_PNTn{jMi}%c">
+<field name="TEXT">DS preview on/off</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="rdN3#0#{IaatvWp;6n+g">
+<field name="TEXT">3 dots, Camera Stream</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="/Zm[n8^)(`(S}Ab9j!;|">
+<value name="KEY">
+<shadow type="text" id="E)4aB(Zb2,Da/0v0AiN=">
+<field name="TEXT">&gt;</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="^u5_oh+s(.Vs1Kk;$yw9">
+<field name="TEXT">Press Play to start</field>
+</shadow>
+</value>
+<next>
+<block type="telemetry_update" id="CcM7+$syN,5p}u1NCi8q">
+<next>
+<block type="comment" id="ucY]w(tl5$!{2RX}=X;C">
+<field name="COMMENT">Wait for start command from Driver Station.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="comment" id="s%TUf}aTWpdQ0-.E];XA">
+<field name="COMMENT">Do the movement</field>
+<next>
+<block type="variables_set" id="o@mf~T^.^mXY2JHut].q">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+<value name="VALUE">
+<block type="procedures_callreturn" id="raRb.R2$Rc`|QqLz{?O3">
+<mutation name="findDuckPos"/>
+</block>
+</value>
+<next>
+<block type="telemetry_addTextData_All" id="Y_j^P:py%upnAag|V(tZ">
+<value name="KEY">
+<shadow type="text" id="f:Bs!ad!;M!,/1i-U`U)">
+<field name="TEXT">hi</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="W9lp*Um@hL/L^fPLzres">
+<field name="TEXT">text</field>
+</shadow>
+<block type="variables_get" id="h%u!Y8lhw#tc/))Ojoj?">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+</block>
+</value>
+<next>
+<block type="controls_if" id="+dT0{.FUe4w@?UG7o:1t">
+<mutation elseif="1" else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="$VO4^.wr]|)BEA=eDsUT">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="u-QwF2RTW;Z*{P+JYo7Z">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+</block>
+</value>
+<value name="B">
+<block type="text" id="w^,rUTz),aW~-/Z/D%iH">
+<field name="TEXT">leftBarcode</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="eu~hl6`urY?^Vp5v}7G9">
+<field name="COMMENT">place on level 1</field>
+<next>
+<block type="telemetry_addTextData_All" id="^Akc8:.l~in#:3my:Cqt">
+<value name="KEY">
+<shadow type="text" id="CYPAK035([[imO@X*$I$">
+<field name="TEXT">Level</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="a,16D8dgY2qqtVgu=58L">
+<field name="TEXT">Bottom</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_compare" id="aBwq9wzElESmj|Y1wc~x">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="53(cuD^{0lCj}b@I$Za2">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+</block>
+</value>
+<value name="B">
+<block type="text" id="$JhEo7u^]s~;`v;%(bH1">
+<field name="TEXT">centerBarcode</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="comment" id="nouwr8n#[V!f)~N;aQ(6">
+<field name="COMMENT">place on level 2</field>
+<next>
+<block type="telemetry_addTextData_All" id="%h+(`*c^;YNp(cOvw{;S">
+<value name="KEY">
+<shadow type="text" id="5Ns|S`)p$?kPzo[kOdi!">
+<field name="TEXT">Level</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="gneW4n}%=-C.uO7iky9$">
+<field name="TEXT">Middle</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="comment" id="M|lr:0gEx=p5BndGkw0]">
+<field name="COMMENT">place on level 3</field>
+<next>
+<block type="telemetry_addTextData_All" id="6p|~Os*l]U1a+I2488?b">
+<value name="KEY">
+<shadow type="text" id="6R3;)Nr|QQ@vBT^D/$El">
+<field name="TEXT">Level</field>
+</shadow>
+</value>
+<value name="TEXT">
+<shadow type="text" id="gOd1AJOG80$$j~Z7Hql,">
+<field name="TEXT">Top</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="comment" id="x3Da[L*)xMh=3e7zy7*{">
+<field name="COMMENT">Deactivate TFOD.</field>
+<next>
+<block type="tfodCurrentGame_deactivate" id=")#LnjM-c3n?~scY$Z!@Y"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defreturn" id="W_CYb.1Bal$nPf7^mb+F" x="-958" y="1586">
+<field name="NAME">findDuckPos</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="variables_set" id="6+h5l9a8w!sAgv.upF]6">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+<value name="VALUE">
+<block type="text" id="QLcvv6)P^Cm2=+q(=j2I">
+<field name="TEXT">rightBarcode</field>
+</block>
+</value>
+<next>
+<block type="controls_forEach" id="T9{K{d.b49rd%|1EVs1n">
+<field name="VAR" id="^5b-he,ol9K=.LL1Lx/+">recog</field>
+<value name="LIST">
+<block type="tfodCurrentGame_getRecognitions" id="DgEJ;4IZtY*)GP7~9%$;"/>
+</value>
+<statement name="DO">
+<block type="variables_set" id="_qZXAglH%ryFRPCNYHx1">
+<field name="VAR" id="dh_o5aR,gU)44w`CFCe8">recogCenter</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="GVki[Yc/l8i!4O?oAN{A">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="W%VzCt-hWuq[TIk;eK8:">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number" id="Rq~#ooh:=AHzhJK/jTLt">
+<field name="NUM">1</field>
+</shadow>
+<block type="tfodRecognition_getProperty_Number" id="i]DUi]{Huc6-=Vv,,77.">
+<field name="PROP">Left</field>
+<value name="TFOD_RECOGNITION">
+<block type="variables_get" id="Ho8?^?Vm83P+HwFAN#Cw">
+<field name="VAR" id="^5b-he,ol9K=.LL1Lx/+">recog</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="tfodRecognition_getProperty_Number" id="vcZxzC1Vl5Z#!,J[jOAm">
+<field name="PROP">Right</field>
+<value name="TFOD_RECOGNITION">
+<block type="variables_get" id="OI*rx^V^E[6ED@{CTe!j">
+<field name="VAR" id="^5b-he,ol9K=.LL1Lx/+">recog</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="=$,RH!$-L6?6rpv:7Pz#">
+<field name="NUM">2</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="controls_if" id="{*txANU-`g,dY](J1WZ!">
+<value name="IF0">
+<block type="logic_operation" id="|QVI=S:9f/C|rseBtGC1">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="aeG(sN%se#^jqxr+RJ8=">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="tfodRecognition_getProperty_String" id="@FG3O(Ti7.8?5x+2}}`)">
+<field name="PROP">Label</field>
+<value name="TFOD_RECOGNITION">
+<block type="variables_get" id="5I%J-^L$Bz)n:k3hWtY4">
+<field name="VAR" id="^5b-he,ol9K=.LL1Lx/+">recog</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="tfodCurrentGame_typedEnum_label" id="S608^*QM$a327!Wbd!c}">
+<field name="LABEL">Duck</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="|eWe0KCk1A~v,L-)kHHd">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="tfodRecognition_getProperty_Number" id="Ep5[5cc5b-1kSI{]ty4{">
+<field name="PROP">Height</field>
+<value name="TFOD_RECOGNITION">
+<block type="variables_get" id=";3Ek8`KoD[?4T6wO~*/c">
+<field name="VAR" id="^5b-he,ol9K=.LL1Lx/+">recog</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="`wXD*Z9,B9{W1])g(Byy">
+<field name="NUM">80</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="[~JCs6zibaB0izPsxEi2">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="rj??a8#rx!-|`+B],T)B">
+<field name="OP">LT</field>
+<value name="A">
+<block type="variables_get" id="O|1$QMWL9~0z(25=~Jx[">
+<field name="VAR" id="dh_o5aR,gU)44w`CFCe8">recogCenter</field>
+</block>
+</value>
+<value name="B">
+<block type="math_arithmetic" id=",{{xn/z~t}6`V!Wqr]2[">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number" id="[D+5A0Y#;%f,E@$70yuP">
+<field name="NUM">1</field>
+</shadow>
+<block type="tfodRecognition_getProperty_Number" id="0wxfB}(Ug3C5,$I6[B5J">
+<field name="PROP">ImageWidth</field>
+<value name="TFOD_RECOGNITION">
+<block type="variables_get" id="(Cb*`L2#St_GU5~1wv;=">
+<field name="VAR" id="^5b-he,ol9K=.LL1Lx/+">recog</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="`ll}{`=)0AehTXa.;Po+">
+<field name="NUM">2</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="?RR_cjIlXq`mxw}5d~3u">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+<value name="VALUE">
+<block type="text" id="g!nv:i}4Dx;MbP1;UJ11">
+<field name="TEXT">leftBarcode</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="1gi!I}Ze!x`RDqoD(_?e">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+<value name="VALUE">
+<block type="text" id="fe^|%OLEZ*+LLJ?S7s[0">
+<field name="TEXT">centerBarcode</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+<value name="RETURN">
+<block type="variables_get" id=";bz}p.M+w?M`-F.}^SRJ">
+<field name="VAR" id="/;..,1S]c6XTz(ocboUD">duckPos</field>
+</block>
+</value>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="AUTONOMOUS" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>
