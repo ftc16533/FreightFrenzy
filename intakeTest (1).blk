@@ -1,0 +1,242 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="h[n-E7brAE_%f,bCWILe">powerEle</variable>
+<variable id="UK3INc{emxytIWBewJ:(">rotationtime</variable>
+</variables>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" editable="false" x="39" y="-160">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="variables_set" id="|u`e?2v|SoAlrzveM7fQ" disabled="true">
+<field name="VAR" id="h[n-E7brAE_%f,bCWILe">powerEle</field>
+<value name="VALUE">
+<block type="math_number" id="d1nh8G]HT/[N[h[aQe_n">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="{/[+w`8gzM6#HNmOZx@R" disabled="true">
+<field name="VAR" id="UK3INc{emxytIWBewJ:(">rotationtime</field>
+<value name="VALUE">
+<block type="math_number" id="cXKAFY5p5zA[,hh!z,3X">
+<field name="NUM">537.7</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="TIpI!e1QvJE;AsNg6!H5" disabled="true">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"elevator"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="NkYbNfkImT.cm^]JN~cA">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="G?cDPv_D=ay+g!R$.lis" disabled="true">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"elevator"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="8VgAHbq^dB,7{ulpSnMQ">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="mZOzS5Z3j~1:Hn^fG@qG">
+<field name="VAR" id="UK3INc{emxytIWBewJ:(">rotationtime</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="C`:bQ7GI1|Ymadp$d%#D" disabled="true">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"elevator"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Ci29=nYf[.tu_?L6r4^5">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="hP|ae]lJ~[@F:l^l5zKy" disabled="true">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"elevator"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="HdoX*R}!o*D+3^MD(|:;">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="}_,,AN{Q#QMNE?jjV%YI" disabled="true">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"elevator"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="b0`3^a`MgA9w/E!`Sj.h">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="uxO1KZ,gY{I^}IjmIq.h">
+<field name="VAR" id="h[n-E7brAE_%f,bCWILe">powerEle</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="Lw;A~UtphnDlv)^]_|ht">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"elevator"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="$M^J[xxn0hoVh|M32}B6">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="A+n4|jr9-.17P;(tzgg0">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="H)F+l%TDf)|UOBoYH;Mr">
+<field name="NUM">-0.5</field>
+</shadow>
+</value>
+<value name="B">
+<shadow type="math_number" id="$HOAkMnsh~[Y0sO$B|rT">
+<field name="NUM">1</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id="I(hC(bADJI;I(R]jOpI[">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="controls_if" id="W!=Hcz$K02`k_Ki{qnQ,">
+<mutation elseif="1" else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="wsN?I/[=.Q2:;#n-0L[f">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Y</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="crServo_setProperty_Direction" id="r_JFS|s*NuzriqWKAM9K">
+<field name="IDENTIFIER">intakeAsCRServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"intake"}</data>
+<value name="VALUE">
+<shadow type="crServo_typedEnum_direction" id="%RjtRh7c7D!MN6e$TxTl">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id="=-0r[V#6(Pb*~4o#R-Z@">
+<field name="IDENTIFIER">intakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"intake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="XSp1-R|}*Mj~By9?Q6uA">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="gamepad_getProperty_Boolean" id="tZyw9xUnOhrW5g[s0f|)">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">X</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO1">
+<block type="crServo_setProperty_Direction" id="[oo*tgj(2t;-}rGU5@p$">
+<field name="IDENTIFIER">intakeAsCRServo</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"intake"}</data>
+<value name="VALUE">
+<shadow type="crServo_typedEnum_direction" id="{Jm-+Qy9?,mTQ(ilvQo@">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id="y}]z]3UkNP@H;Y.LaeIQ">
+<field name="IDENTIFIER">intakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"intake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id=")v~5]FZ5*EE(zEcXJ,AT">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="crServo_setProperty_Number" id="0HGyRf90Ra:n@Eb=huu#">
+<field name="IDENTIFIER">intakeAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"intake"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="MgOwz}N5nyB7^]-AamX;">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>
