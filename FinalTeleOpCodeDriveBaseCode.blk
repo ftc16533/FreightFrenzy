@@ -267,7 +267,7 @@
 </block>
 </value>
 <next>
-<block type="dcMotor_setProperty_Number" id="Js^mS?3g,1qKMp08|eW]" disabled="true">
+<block type="dcMotor_setProperty_Number" id="Js^mS?3g,1qKMp08|eW]">
 <field name="IDENTIFIER">elevatorAsDcMotor</field>
 <field name="PROP">Power</field>
 <data>{"IDENTIFIER":"elevator"}</data>
@@ -288,7 +288,7 @@
 </shadow>
 <block type="gamepad_getProperty_Number" id="rJxVP[@2#e:|gADg#tU{">
 <field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">LeftStickY</field>
+<field name="PROP">RightStickY</field>
 <data>{"IDENTIFIER":"gamepad1"}</data>
 </block>
 </value>
@@ -372,7 +372,7 @@
 </block>
 </statement>
 <next>
-<block type="variables_set" id=":gEF9/~9zA+W9u.tf(b:">
+<block type="variables_set" id=":gEF9/~9zA+W9u.tf(b:" disabled="true">
 <field name="VAR" id="Tc5^%JZ?+aLO;9V}vA@o">rotations</field>
 <value name="VALUE">
 <block type="math_number" id="JN80NTg)2ESs;Fn%}X0u">
@@ -380,7 +380,7 @@
 </block>
 </value>
 <next>
-<block type="dcMotor_setProperty_RunMode" id=")EUC$2F]ffom.5u-s{Z0">
+<block type="dcMotor_setProperty_RunMode" id=")EUC$2F]ffom.5u-s{Z0" disabled="true">
 <field name="IDENTIFIER">elevatorAsDcMotor</field>
 <field name="PROP">Mode</field>
 <data>{"IDENTIFIER":"elevator","block_warning_hidden":true}</data>
@@ -390,7 +390,7 @@
 </shadow>
 </value>
 <next>
-<block type="dcMotor_setProperty_Number" id="vMy8?n:XRpFKV{]|.ZfK">
+<block type="dcMotor_setProperty_Number" id="vMy8?n:XRpFKV{]|.ZfK" disabled="true">
 <field name="IDENTIFIER">elevatorAsDcMotor</field>
 <field name="PROP">TargetPosition</field>
 <data>{"IDENTIFIER":"elevator","block_warning_hidden":true}</data>
@@ -403,7 +403,7 @@
 </block>
 </value>
 <next>
-<block type="dcMotor_setProperty_RunMode" id="V;%moc+l$H55wxfeq|GN">
+<block type="dcMotor_setProperty_RunMode" id="V;%moc+l$H55wxfeq|GN" disabled="true">
 <field name="IDENTIFIER">elevatorAsDcMotor</field>
 <field name="PROP">Mode</field>
 <data>{"IDENTIFIER":"elevator","block_warning_hidden":true}</data>
@@ -413,7 +413,7 @@
 </shadow>
 </value>
 <next>
-<block type="dcMotor_setProperty_ZeroPowerBehavior" id="uqyks@zj^b,s84$vRhLb">
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="uqyks@zj^b,s84$vRhLb" disabled="true">
 <field name="IDENTIFIER">elevatorAsDcMotor</field>
 <field name="PROP">ZeroPowerBehavior</field>
 <data>{"IDENTIFIER":"elevator","block_warning_hidden":true}</data>
@@ -423,7 +423,7 @@
 </shadow>
 </value>
 <next>
-<block type="variables_set" id="SwO*@C8}[YW,%BVAi=Ug">
+<block type="variables_set" id="SwO*@C8}[YW,%BVAi=Ug" disabled="true">
 <field name="VAR" id="kq~m|x:iT!H3[Un0GT?D">elevator-power</field>
 <value name="VALUE">
 <block type="gamepad_getProperty_Boolean" id="Yx[)aFBm[J{AETEr0K%?">
@@ -433,7 +433,7 @@
 </block>
 </value>
 <next>
-<block type="controls_if" id="~B%TL6;yGmY*]m@JYG0*">
+<block type="controls_if" id="~B%TL6;yGmY*]m@JYG0*" disabled="true">
 <value name="IF0">
 <block type="gamepad_getProperty_Boolean" id="hI!^6uKG[fj@]/DvX$dX">
 <field name="IDENTIFIER">gamepad1</field>
@@ -445,8 +445,21 @@
 <block type="variables_set" id="E*@BM-!rLR0l@o:g1]s6">
 <field name="VAR" id="kq~m|x:iT!H3[Un0GT?D">elevator-power</field>
 <value name="VALUE">
-<block type="math_number" id="i)lfJwdy=E}(88FpDIPL">
+<block type="math_arithmetic" id="i7Jkr#U;71:zx%P0jEp^">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id=".hg4sz4S5}q/{J!b]isb">
 <field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="@aqMya0VE60VVv:!bD8/">
+<field name="VAR" id="Tc5^%JZ?+aLO;9V}vA@o">rotations</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id=",r[yNa13BSvF4@}Y=AOO">
+<field name="NUM">7</field>
+</shadow>
+</value>
 </block>
 </value>
 <next>
@@ -467,7 +480,7 @@
 </block>
 </statement>
 <next>
-<block type="controls_if" id="W$3@$0nqkfpp|_deGBg~">
+<block type="controls_if" id="W$3@$0nqkfpp|_deGBg~" disabled="true">
 <value name="IF0">
 <block type="logic_negate" id="6`NaV;)5!~XL(!?5DFG$">
 <value name="BOOL">
@@ -487,6 +500,100 @@
 <field name="NUM">0</field>
 </block>
 </value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="fCbqldR{Y6ZA:i#*q;_q" disabled="true">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="SV1v^j5S:iyg/U4pOkpq">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Y</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="2,C9-:0O%W23qvVvQkX)">
+<field name="VAR" id="kq~m|x:iT!H3[Un0GT?D">elevator-power</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="$=C[hue4-wqzza?d$WS%">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="4mx(qu4%G%e~B{XZ~:*a">
+<field name="VAR" id="Tc5^%JZ?+aLO;9V}vA@o">rotations</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="![U,u4Jm3Vx!*CY#.XN_">
+<field name="NUM">12</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="/sn4J{0ce|e$IdO)I=@(">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"elevator","block_warning_hidden":true}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="?1h$CvP):3o`]0lCH]|f">
+<field name="VAR" id="Tc5^%JZ?+aLO;9V}vA@o">rotations</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="JigoT)fF^PsSD$;-lVH3" disabled="true">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="HYFb3-6M3!_eui4x~5Le">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">X</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="qDcq?v@T=2GOSmFs(DXF">
+<field name="VAR" id="kq~m|x:iT!H3[Un0GT?D">elevator-power</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="8fI6ze-T6]9G1X,,I)L#">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="KK[1XHGbP{H?;p$!;nC%">
+<field name="VAR" id="Tc5^%JZ?+aLO;9V}vA@o">rotations</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="lHWpl$$*!WKN|UXPJ~GG">
+<field name="NUM">15</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="!{]bpKS%:c#X5bfIi6op">
+<field name="IDENTIFIER">elevatorAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"elevator","block_warning_hidden":true}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="5GkC`-PX~T_,d)M*%PTB">
+<field name="VAR" id="Tc5^%JZ?+aLO;9V}vA@o">rotations</field>
+</block>
+</value>
+</block>
+</next>
 </block>
 </statement>
 <next>
@@ -558,6 +665,21 @@
 </block>
 </value>
 <next>
+<block type="telemetry_addNumericData_Number" id="`xk863Yt~6!2$T]Tw]c(">
+<value name="KEY">
+<shadow type="text" id="6`tnqjt:Q,LSKz#k`/Ml">
+<field name="TEXT">elevator height</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="Pg@^PxX,dHls,x5(#N)V">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="T`PJVI|lrfvYxXoWo~HW">
+<field name="VAR" id="kq~m|x:iT!H3[Un0GT?D">elevator-power</field>
+</block>
+</value>
+<next>
 <block type="crServo_setProperty_Number" id="=}YQH!@n5YM7R,MlugD@">
 <field name="IDENTIFIER">frontleftAsCRServo</field>
 <field name="PROP">Power</field>
@@ -594,7 +716,7 @@
 </shadow>
 </value>
 <next>
-<block type="dcMotor_setProperty_Number" id="$)32tM_}VwJAxC67O8]O">
+<block type="dcMotor_setProperty_Number" id="$)32tM_}VwJAxC67O8]O" disabled="true">
 <field name="IDENTIFIER">elevatorAsDcMotor</field>
 <field name="PROP">Power</field>
 <data>{"IDENTIFIER":"elevator"}</data>
@@ -608,6 +730,12 @@
 </value>
 <next>
 <block type="telemetry_update" id="M,Z{|qN+eP%fJ$jE]~Ge"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
 </next>
 </block>
 </next>
